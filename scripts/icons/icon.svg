@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="a" cx="78%" cy="18%" r="60%"><stop offset="0" stop-color="#F5A9D0"/><stop offset="1" stop-color="#F5A9D0" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b" cx="15%" cy="88%" r="55%"><stop offset="0" stop-color="#FFB89A"/><stop offset="1" stop-color="#FFB89A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="#F7E88A"/>
+  <rect width="512" height="512" fill="url(#a)"/>
+  <rect width="512" height="512" fill="url(#b)"/>
+  <!-- Pip, centred inside the maskable safe zone -->
+  <g transform="translate(136 118) scale(2)" stroke="#292620" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M46 104l-4 18h-8M74 104l4 18h8" fill="none"/>
+    <path d="M24 30c2-10 10-16 22-17 6 4 10 0 16-1 10-1 20 2 29 6 8 4 11 12 10 22l-2 14 3 10c1 14-2 26-10 34-9 8-24 10-38 9-15-1-27-5-31-17-3-9 1-17 0-26-1-7-3-14-1-21 1-5 2-9 2-13Z" fill="#FFB89A"/>
+    <path d="M84 18c2 6 7 10 13 11" fill="none" stroke-width="2.2"/>
+    <circle cx="45" cy="57" r="3.8" fill="#292620" stroke="none"/>
+    <circle cx="73" cy="57" r="3.8" fill="#292620" stroke="none"/>
+    <path d="M50 68c4 6 14 6 18 0" fill="none"/>
+    <ellipse cx="36" cy="66" rx="5" ry="3" fill="#F5A9D0" stroke="none"/>
+    <ellipse cx="82" cy="66" rx="5" ry="3" fill="#F5A9D0" stroke="none"/>
+    <path d="M22 72c-7 4-10 10-10 16M98 72c7 4 10 10 10 16" fill="none"/>
+  </g>
+  <!-- sparkle -->
+  <path d="M392 92c4 26 11 35 46 50-35 11-42 20-46 50-6-30-13-39-46-50 33-13 40-24 46-50Z" fill="#FFFDF6" stroke="#292620" stroke-width="6" stroke-linejoin="round"/>
+</svg>

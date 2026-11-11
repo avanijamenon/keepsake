@@ -155,7 +155,7 @@
 .dock {
   position: fixed;
   left: 50%;
-  bottom: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom));
   z-index: 50;
   translate: -50% 0;
   display: flex;

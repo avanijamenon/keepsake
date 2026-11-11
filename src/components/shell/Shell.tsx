@@ -10,6 +10,7 @@ import { useSession } from "@/app/providers";
 import { GradientCanvas, ScrapbookButton } from "@/components/ui";
 import { Pip } from "@/components/art/Doodles";
 import { Sticker } from "@/components/art/Sticker";
+import { InstallHint } from "./InstallHint";
 import s from "./shell.module.css";
 
 export function Wordmark() {
@@ -93,6 +94,7 @@ export function Gate({ children }: { children: ReactNode }) {
         </div>
         <Pip mood="happy" size={110} />
       </div>
+      <InstallHint />
     </main>
   );
 }

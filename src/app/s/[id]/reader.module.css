@@ -106,7 +106,7 @@
   .prev,
   .next {
     position: fixed !important;
-    bottom: 22px;
+    bottom: calc(22px + env(safe-area-inset-bottom));
   }
   .prev {
     left: 18px;

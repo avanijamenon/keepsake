@@ -11,6 +11,7 @@ import { Pip, Squiggle, Underline } from "@/components/art/Doodles";
 import { Sticker } from "@/components/art/Sticker";
 import { MemoryCover } from "@/components/scrapbook/MemoryCover";
 import { CreateCollectionSheet } from "@/components/collection/CreateCollectionSheet";
+import { InstallHint } from "@/components/shell/InstallHint";
 import s from "./home.module.css";
 
 function greeting() {
@@ -133,6 +134,7 @@ function Home() {
         </section>
       </main>
       <CreateCollectionSheet open={creating} onClose={() => setCreating(false)} />
+      <InstallHint />
     </>
   );
 }

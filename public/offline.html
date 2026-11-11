@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAF5E9">
+<title>keepsake · offline</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body {
+    display: grid; place-items: center; text-align: center; padding: 2rem;
+    background: radial-gradient(60% 40% at 80% 10%, #F5A9D0aa, transparent 70%),
+                radial-gradient(60% 40% at 10% 90%, #FFB89Aaa, transparent 70%), #FAF5E9;
+    color: #292620; font-family: ui-rounded, system-ui, sans-serif;
+  }
+  h1 { font-family: Georgia, serif; font-weight: 400; font-size: 2.6rem; letter-spacing: -0.03em; margin: 1rem 0 .4rem; }
+  h1 em { color: #EF6956; }
+  p { color: #5b564b; max-width: 26ch; margin: 0 auto 1.4rem; line-height: 1.5; }
+  button { font: inherit; font-weight: 700; padding: .75rem 1.4rem; background: #F7E88A;
+    border: 2.5px solid #292620; border-radius: 28px 34px 26px 32px; box-shadow: 4px 4px 0 #292620; }
+  img { width: 96px; height: 96px; border-radius: 24px; border: 2.5px solid #292620; }
+</style>
+</head>
+<body>
+  <main>
+    <img src="/icons/icon-192.png" alt="">
+    <h1>you&rsquo;re <em>offline</em></h1>
+    <p>Your memories are safe. Reconnect and we&rsquo;ll open the box again.</p>
+    <button onclick="location.reload()">try again</button>
+  </main>
+</body>
+</html>

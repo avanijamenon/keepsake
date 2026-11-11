@@ -131,6 +131,13 @@
   transition: transform 0.18s var(--ease-spring), background 0.2s;
 }
 
+@media (pointer: coarse) {
+  button.chip {
+    min-height: 40px;
+    padding: 0.4em 1em;
+  }
+}
+
 .chip em {
   font-family: var(--font-serif);
   font-style: italic;
@@ -420,6 +427,9 @@ button.chip:hover {
     top: 12px;
     right: 12px;
   }
+  .sheetInner {
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
 }
 
 /* ── Segmented choices ────────────────────────────────────── */
@@ -433,7 +443,7 @@ button.chip:hover {
 .toast {
   position: fixed;
   left: 50%;
-  bottom: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom));
   z-index: 1000;
   translate: -50% 0;
   padding: 0.7rem 1.2rem;

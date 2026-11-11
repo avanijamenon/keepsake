@@ -371,6 +371,14 @@ button.chip:hover {
   color: var(--ink);
   box-shadow: 8px 9px 0 var(--ink);
   overflow: visible;
+  /* Never inherit typography from wherever the sheet was opened. */
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
 }
 
 .sheet[open] {

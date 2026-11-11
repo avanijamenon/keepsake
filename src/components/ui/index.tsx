@@ -11,6 +11,7 @@ import {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type ButtonHTMLAttributes,
   type CSSProperties,
   type InputHTMLAttributes,
@@ -18,6 +19,7 @@ import {
   type TextareaHTMLAttributes,
 } from "react";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 import s from "./ui.module.css";
 import { scallopPath } from "../art/Doodles";
 
@@ -322,13 +324,17 @@ export function Sheet({
   children: ReactNode;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const isClient = useSyncExternalStore(noopSubscribe, () => true, () => false);
   useEffect(() => {
     const d = ref.current;
     if (!d) return;
     if (open && !d.open) d.showModal();
     if (!open && d.open) d.close();
-  }, [open]);
-  return (
+  }, [open, isClient]);
+  if (!isClient) return null;
+  // Portal to <body> so a sheet opened from inside a heading or card never
+  // inherits that element's typography.
+  return createPortal(
     <dialog
       ref={ref}
       className={s.sheet}
@@ -348,9 +354,12 @@ export function Sheet({
           {children}
         </div>
       )}
-    </dialog>
+    </dialog>,
+    document.body,
   );
 }
+
+const noopSubscribe = () => () => {};
 
 const ToastContext = createContext<(msg: string) => void>(() => {});
 

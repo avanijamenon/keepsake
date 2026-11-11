@@ -18,6 +18,7 @@ import {
   errorMessage,
   useToast,
 } from "@/components/ui";
+import { EditName } from "@/components/shell/EditName";
 import s from "./sheets.module.css";
 
 const MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
@@ -157,6 +158,11 @@ export function ShareSheet({
               <span className={s.memberName}>
                 {m.name}
                 {m.isMe && <span className="hand"> (you)</span>}
+                {m.isMe && (
+                  <EditName current={m.name} className={s.editName}>
+                    change name
+                  </EditName>
+                )}
               </span>
               {isOwner && m.role !== "owner" ? (
                 <select

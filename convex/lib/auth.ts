@@ -3,6 +3,7 @@ import { env, type MutationCtx, type QueryCtx } from "../_generated/server";
 import type { Doc, Id } from "../_generated/dataModel";
 
 const DEV_TOKEN = "dev|local-keepsaker";
+export const FALLBACK_NAME = "friend";
 
 type Role = Doc<"members">["role"];
 const RANK: Record<Role, number> = { viewer: 0, contributor: 1, owner: 2 };
@@ -13,9 +14,10 @@ const COLORS = ["#F7E88A", "#FFB89A", "#F5A9D0", "#B7AAF2", "#C4DBA5", "#A9D8F2"
 async function identity(ctx: QueryCtx | MutationCtx) {
   const id = await ctx.auth.getUserIdentity();
   if (id) {
+    const emailName = id.email?.split("@")[0]?.replace(/[._+-]+/g, " ").trim();
     return {
       tokenIdentifier: id.tokenIdentifier,
-      name: id.name ?? id.givenName ?? id.nickname ?? "friend",
+      name: id.name ?? id.givenName ?? id.nickname ?? id.preferredUsername ?? (emailName || FALLBACK_NAME),
       imageUrl: id.pictureUrl,
     };
   }
@@ -49,8 +51,9 @@ export async function ensureViewer(ctx: MutationCtx): Promise<Id<"users">> {
     .withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", id.tokenIdentifier))
     .unique();
   if (existing) {
-    if (existing.name !== id.name || existing.imageUrl !== id.imageUrl) {
-      await ctx.db.patch("users", existing._id, { name: id.name, imageUrl: id.imageUrl });
+    const name = existing.nameIsCustom ? existing.name : id.name;
+    if (existing.name !== name || existing.imageUrl !== id.imageUrl) {
+      await ctx.db.patch("users", existing._id, { name, imageUrl: id.imageUrl });
     }
     return existing._id;
   }

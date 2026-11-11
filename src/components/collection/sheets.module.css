@@ -79,3 +79,13 @@
   border-radius: 50%;
   border: 1.5px solid var(--ink);
 }
+
+.editName {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  text-decoration: underline wavy rgb(41 38 32 / 0.35);
+  text-underline-offset: 4px;
+}

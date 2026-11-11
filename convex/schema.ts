@@ -92,6 +92,8 @@ export default defineSchema({
   users: defineTable({
     tokenIdentifier: v.string(),
     name: v.string(),
+    /** True once the person picked their own name; sign-in data won't overwrite it. */
+    nameIsCustom: v.optional(v.boolean()),
     imageUrl: v.optional(v.string()),
     color: v.string(),
   }).index("by_tokenIdentifier", ["tokenIdentifier"]),

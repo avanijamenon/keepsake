@@ -12,6 +12,7 @@ import { Sticker } from "@/components/art/Sticker";
 import { MemoryCover } from "@/components/scrapbook/MemoryCover";
 import { CreateCollectionSheet } from "@/components/collection/CreateCollectionSheet";
 import { InstallHint } from "@/components/shell/InstallHint";
+import { EditName } from "@/components/shell/EditName";
 import s from "./home.module.css";
 
 function greeting() {
@@ -42,16 +43,23 @@ function Home() {
           <h1 className={s.hello}>
             {greeting()},
             <br />
-            <em>
-              {me?.name ?? "friend"}
-              <Underline className={s.underline} />
-            </em>
+            <EditName current={me?.name ?? "friend"} className={s.nameButton} label="Change your name">
+              <em>
+                {me?.name ?? "friend"}
+                <Underline className={s.underline} />
+              </em>
+            </EditName>
           </h1>
           <p className={s.lede}>
             {boxes.length === 0
               ? "Nothing in here yet. Start a box, drop in some photos, and we’ll paste together the good bits."
               : `${boxes.length} ${boxes.length === 1 ? "box" : "boxes"} of memories, ${books.length} ${books.length === 1 ? "scrapbook" : "scrapbooks"} so far.`}
           </p>
+          {me?.needsName && (
+            <EditName current={me.name} className={s.namePrompt}>
+              ✎ what should we call you?
+            </EditName>
+          )}
           <div className={s.heroActions}>
             <ScrapbookButton color="tomato" onClick={() => setCreating(true)}>
               + new memory box

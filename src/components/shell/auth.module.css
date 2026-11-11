@@ -1,0 +1,173 @@
+.page {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.top {
+  position: relative;
+  z-index: 1;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 440px);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+
+.copy {
+  position: relative;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  font-weight: 400;
+  font-size: clamp(3rem, 9vw, 6.4rem);
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--tomato);
+}
+
+.lede {
+  max-width: 34ch;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+}
+
+.pip {
+  animation: bob 3.6s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-8px) rotate(4deg);
+  }
+}
+
+.spark {
+  position: absolute;
+  top: -20px;
+  right: 18%;
+  rotate: 14deg;
+}
+
+.card {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.switch {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+}
+
+.switch a {
+  text-decoration: underline wavy var(--tomato);
+  text-underline-offset: 5px;
+}
+
+.devNote {
+  display: grid;
+  justify-items: center;
+  gap: 1.4rem;
+  padding: 2rem 0;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .pip {
+    display: none;
+  }
+}
+
+/* ── Restyle Clerk's components into our paper language ─────────────── */
+.card :global(.cl-cardBox),
+.card :global(.cl-card) {
+  border: var(--line-thick);
+  border-radius: 26px 32px 24px 30px;
+  box-shadow: var(--pop-lg);
+  background: var(--paper);
+  font-family: var(--font-sans);
+}
+
+.card :global(.cl-card) {
+  border: 0;
+  box-shadow: none;
+}
+
+.card :global(.cl-headerTitle) {
+  font-family: var(--font-serif);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-weight: 400;
+  font-size: 1.9rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.card :global(.cl-headerSubtitle) {
+  color: var(--ink-soft);
+}
+
+.card :global(.cl-formButtonPrimary) {
+  min-height: 46px;
+  background: var(--tomato);
+  color: var(--ink);
+  border: var(--line-thick);
+  border-radius: 28px 34px 26px 32px / 26px 30px 28px 32px;
+  box-shadow: var(--pop);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: none;
+  transition: transform 0.18s var(--ease-spring), box-shadow 0.18s var(--ease-spring);
+}
+
+.card :global(.cl-formButtonPrimary:hover) {
+  background: var(--tomato);
+  transform: translate(-1px, -2px) rotate(-1deg);
+}
+
+.card :global(.cl-formButtonPrimary:active) {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+.card :global(.cl-formFieldInput) {
+  border: var(--line);
+  border-radius: 14px 18px 12px 16px;
+  background: #fffdf8;
+  box-shadow: inset 2px 2px 0 rgb(41 38 32 / 0.06);
+}
+
+.card :global(.cl-socialButtonsBlockButton),
+.card :global(.cl-socialButtonsIconButton) {
+  border: var(--line);
+  border-radius: 16px;
+  box-shadow: var(--pop-sm);
+  background: var(--cream);
+}
+
+.card :global(.cl-footer) {
+  background: transparent;
+}
+
+.card :global(.cl-footerAction) {
+  display: none;
+}

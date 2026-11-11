@@ -1,0 +1,145 @@
+.book {
+  position: relative;
+  display: block;
+  width: 168px;
+  aspect-ratio: 4 / 5.2;
+  flex: 0 0 auto;
+  color: var(--ink-c);
+  background: var(--paper);
+  border: var(--line-thick);
+  border-radius: 4px 12px 12px 4px;
+  box-shadow: 5px 6px 0 var(--ink);
+  rotate: var(--tilt);
+  overflow: hidden;
+  transition:
+    transform 0.35s var(--ease-spring),
+    box-shadow 0.35s var(--ease-spring);
+  transform-origin: 50% 100%;
+}
+
+.book:hover,
+.book:focus-visible {
+  transform: translateY(-10px) rotate(calc(var(--tilt) * -1.4));
+  box-shadow: 8px 12px 0 var(--ink);
+}
+
+.coverArt {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 55% at 85% 10%, var(--a) 0%, transparent 70%),
+    radial-gradient(60% 50% at 10% 90%, var(--b) 0%, transparent 70%),
+    radial-gradient(50% 40% at 70% 70%, var(--c) 0%, transparent 70%),
+    var(--paper);
+  filter: saturate(1.1);
+}
+
+.coverArt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain);
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+.spine {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 14px;
+  z-index: 2;
+  background: linear-gradient(90deg, rgb(41 38 32 / 0.25), rgb(41 38 32 / 0.05) 60%, rgb(255 255 255 / 0.25) 80%, transparent);
+  border-right: 1.5px solid rgb(41 38 32 / 0.25);
+}
+
+.print {
+  position: absolute;
+  top: 16%;
+  left: 22%;
+  width: 62%;
+  aspect-ratio: 1 / 1.08;
+  padding: 6% 6% 16%;
+  background: #fffdf8;
+  rotate: -4deg;
+  box-shadow: var(--print-shadow);
+  z-index: 1;
+}
+
+.print img,
+.noPhoto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: rgb(41 38 32 / 0.08);
+}
+
+.title {
+  position: absolute;
+  left: 18px;
+  right: 10px;
+  bottom: 30px;
+  z-index: 2;
+  font-family: var(--font-serif);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sub {
+  position: absolute;
+  left: 18px;
+  bottom: 12px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.meta {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  z-index: 2;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.sticker {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 3;
+  rotate: 14deg;
+  transition: rotate 0.4s var(--ease-spring);
+}
+
+.book:hover .sticker {
+  rotate: -10deg;
+}
+
+.draft {
+  position: absolute;
+  right: -30px;
+  bottom: 54px;
+  z-index: 4;
+  width: 110px;
+  padding: 2px 0;
+  rotate: -40deg;
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

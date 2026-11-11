@@ -1,0 +1,34 @@
+.form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.ideas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: -0.4rem;
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.swatch {
+  width: 44px;
+  height: 44px;
+  border: var(--line);
+  border-radius: 50% 45% 55% 50% / 50% 55% 45% 50%;
+  transition: transform 0.25s var(--ease-spring);
+}
+
+.swatch:hover {
+  transform: scale(1.1) rotate(-8deg);
+}
+
+.swatch[aria-checked="true"] {
+  box-shadow: 0 0 0 3px var(--cream), 0 0 0 5.5px var(--ink);
+  transform: rotate(-8deg);
+}

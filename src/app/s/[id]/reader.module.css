@@ -1,0 +1,161 @@
+.root {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.bg {
+  position: fixed !important;
+}
+
+.draftNote {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: -0.3rem auto 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.draftNote .mono,
+.draftNote :global(.mono) {
+  padding: 2px 8px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 4px;
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  padding: 1.5rem clamp(0.5rem, 3vw, 2.5rem) 1rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.bookWrap {
+  display: grid;
+  place-items: center;
+  min-height: min(78dvh, 900px);
+}
+
+.spread {
+  position: relative;
+  display: grid;
+  gap: 0;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.one {
+  width: min(560px, 84vw, calc(72dvh * 0.8));
+}
+
+.two {
+  grid-template-columns: 1fr 1fr;
+  width: min(1120px, 88vw, calc(74dvh * 1.6));
+  filter: drop-shadow(0 30px 30px rgb(41 38 32 / 0.25));
+}
+
+.two .pageSlot:first-child > div {
+  border-radius: 8px 2px 2px 8px;
+}
+
+.two .pageSlot:last-child > div {
+  border-radius: 2px 8px 8px 2px;
+}
+
+.gutter {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  translate: -50% 0;
+  background: linear-gradient(90deg, transparent, rgb(41 38 32 / 0.16) 45%, rgb(41 38 32 / 0.28) 50%, rgb(41 38 32 / 0.16) 55%, transparent);
+  pointer-events: none;
+  z-index: 60;
+}
+
+.prev,
+.next {
+  z-index: 5;
+}
+
+.prev:disabled,
+.next:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .stage {
+    grid-template-columns: 1fr;
+    padding-top: 1rem;
+  }
+  .prev,
+  .next {
+    position: fixed !important;
+    bottom: 22px;
+  }
+  .prev {
+    left: 18px;
+  }
+  .next {
+    right: 18px;
+  }
+  .bookWrap {
+    min-height: auto;
+  }
+  .one {
+    width: 92vw;
+  }
+}
+
+.dots {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0.6rem 5rem 0;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+  transition: transform 0.2s var(--ease-spring), background 0.2s;
+}
+
+.dot[aria-current="page"] {
+  background: var(--tomato);
+  transform: scale(1.35);
+}
+
+.counter {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  padding: 0.3rem 0 2rem;
+}
+
+.missing {
+  max-width: 420px;
+  margin: 4rem auto;
+}

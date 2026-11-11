@@ -6,12 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "dev:backend": "convex dev",
+    "deploy:backend": "convex deploy"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.9.25",
+    "@convex-dev/r2": "^0.10.4",
+    "convex": "^1.49.0",
+    "exifr": "^7.1.3",
+    "motion": "^14.12.0",
     "next": "16.4.6",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/node": "^20",

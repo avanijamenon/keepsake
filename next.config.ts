@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // The app is client-driven (Convex subscriptions), so we keep the default
+  // rendering model rather than Cache Components.
 };
 
 export default nextConfig;

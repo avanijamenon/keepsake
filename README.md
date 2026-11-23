@@ -4,6 +4,15 @@ A cosy little corner of the internet for collecting moments with people you love
 Drop photos into a shared **memory box**; keepsake picks the good bits and pastes
 them into an editable, collaborative scrapbook.
 
+<p align="center">
+  <img src="docs/demo.gif" width="800" alt="keepsake demo: make a memory box, invite your people, everyone drops their photos in, keepsake picks the good bits and writes a caption for each, then lays them out as a scrapbook">
+</p>
+
+<p align="center">
+  <a href="https://keepsake-omega-lilac.vercel.app">Try it live</a> ·
+  <a href="docs/demo.mp4">Watch the demo in HD</a>
+</p>
+
 ## Running it locally
 
 ```bash
